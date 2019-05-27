@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mars</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet2" type="text/css" href="/Style/Style.css">
+</head>
+
+<body>
+
+    <center>
+    <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading"><h1 class="center">Mission to Mars</h1></div>
+    
+        <a class="btn btn-primary btn-lg" href="/scrape" role="button">Find the latest news and images</a>
+        <br>
+  <br>
+    </div>
+  </center>
+
+  
+
+
+      <div class="row">
+          <div class="col-sm-12 col-md-4">
+
+            
+              <div class="panel panel-default">
+                  <!-- Default panel contents -->
+                  <div class="panel-heading"><h1>Featured Picture</h1></div>
+              
+                  <img style="height:50%; width: 100%; display: block;" src={{ FlaskVariableName[0]["Space Featured Image"]}} alt="Featured Image"
+                </img>
+              </div>
+          </div>
+
+
+
+
+
+
+            <!-- <div class="box purple">
+                <img style="height:50%; width: 100%; display: block;" src={{ FlaskVariableName[0]["Space Featured Image"]}} alt="Featured Image"
+                </img>
+              </div>
+          </div> -->
+      
+
+
+          <div class="col-sm-12 col-md-4">
+              
+
+
+                      <div class="panel panel-default">
+                          <!-- Default panel contents -->
+                          <div class="panel-heading"><h1>Latest News</h1></div>
+                      
+                      <h3>{{ FlaskVariableName[0]["Latest News"]["Title"] }}</h3>
+                      <h4>{{ FlaskVariableName[0]["Latest News"]["Summary"] }}</h4>
+                      </div>
+
+                
+              
+              </div>
+        
+
+        <div class="col-sm-12 col-md-4">
+            <div class="panel panel-default">
+                <!-- Default panel contents -->
+                <div class="panel-heading"><h1>Current Weather</h1></div>
+            
+                <h4>{{ FlaskVariableName[0]["Current Weather"] }}</h4>
+            </div>
+
+
+
+       </div>
+
+      </div>
+
+
+
+              <div class="panel panel-default">
+                  <!-- Default panel contents -->
+                  <div class="panel-heading"><h1>Mars Facts</h1></div>
+        </div>
+          <!-- Table -->
+          {{ FlaskVariableName[0]["Facts"]|safe}}
+          
+        </div>
+
+     
+         <br>
+
+
+      
+         <div class="panel panel-default">
+            <!-- Default panel contents -->
+            <div class="panel-heading"><h1>Latest Pictures</h1></div>
+        </div>
+      </div>
+        
+
+      
+      
+        {% for item in FlaskVariableName[0]["Hemispheres"] %}
+        <div class="col-lg-3">
+            <div class="card" style="width: 20rem;">
+                <div class="card-body">
+                  <h4 class="card-title">{{ item["title"] }}</h4>
+                  <img style="height: 100%; width: 100%; display: block;" src={{ item["Image Url"] }} alt=" Image"</img>
+                </div>
+              </div>
+          </div>
+          {% endfor %}
+
+  
+</body>
+
+</html>
